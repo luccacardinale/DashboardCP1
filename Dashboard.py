@@ -204,7 +204,7 @@ elif aba == "Análise de Dados":
             f"**Moda:** {moda} | **Variância:** {variancia:.2f} | **Desvio Padrão:** {desvio_padrao:.2f}"
         )
 
-        # Comentário interpretativo resumido
+        
         st.markdown(
             f"""
             A variável **{variavel_num}** apresenta média de **{media:.2f}**, mediana de **{mediana:.2f}** e moda igual a **{moda}**.  
@@ -225,13 +225,13 @@ elif aba == "Análise de Dados":
 
 
 
-    # Série temporal (corrigida)
+    # Série temporal 
     colunas_tempo = [c for c in df.columns if "ano" in c.lower() or "data" in c.lower()]
     if colunas_tempo and colunas_numericas:
         st.markdown("**Tendência temporal (se aplicável):**")
         coluna_tempo = st.selectbox("Selecione a coluna de tempo:", colunas_tempo, index=0)
 
-        # evita escolher a mesma coluna como métrica
+        
         opcoes_metricas = [c for c in colunas_numericas if c != coluna_tempo]
         if not opcoes_metricas:
             st.info("Não há métrica numérica distinta da coluna de tempo para plotar a série temporal.")
@@ -286,3 +286,4 @@ elif aba == "Análise de Dados":
                 st.write(f"**H1:** as médias são diferentes.")
                 st.metric("t-statistic", f"{t_stat:.3f}")
                 st.metric("p-valor", f"{p_val:.4f}")
+
